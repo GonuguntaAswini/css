@@ -1,16 +1,18 @@
 .fisrt-container,.second-container{
     width: 900px;
     /* height: 600px; */
-    /* border: 2px solid; */
+    border: 2px solid;
     margin: 5px;
 
 }
 .item-1,.item-2,.item-3,.item-4{
     width: 200px;
-    height: 400px;
-    /* border: 2px solid; */
+    height: 490px;
+    border: 2px solid;
     margin: 5px;
     display: inline-block;
+    vertical-align: top;
+    
 }
 img{
     width: 100%;
