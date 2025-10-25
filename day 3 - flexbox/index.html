@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Flexbox: 4 child boxes (responsive)</title>
+  <style>
+    :root{
+      --gap: 1.25rem;       /* spacing between items */
+      --pad: 1rem;
+      --item-bg: #1e90ff;
+      --item-color: #ffffff;
+      --container-bg: #f4f6fb;
+      --breakpoint: 768px;  /* desktop breakpoint */
+      --radius: 8px;
+    }
+
+    /* Page reset & simple layout */
+    *{box-sizing: border-box}
+    body{
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      margin: 0;
+      padding: 2rem;
+      background: var(--container-bg);
+      color: #0b1220;
+      line-height: 1.4;
+    }
+
+    h1{
+      margin: 0 0 1rem 0;
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+    p.lead{
+      margin: 0 0 1.5rem 0;
+      font-size: 0.95rem;
+      color: #2b3440;
+    }
+
+    /* FLEX PARENT (container) */
+    .flex-container{
+      display: flex;                 /* establishes flex formatting context (parent) */
+      flex-direction: column;        /* default (mobile): stack children vertically */
+      gap: var(--gap);               /* spacing between flex items */
+      justify-content: center;       /* main-axis alignment (vertical on column) */
+      align-items: stretch;          /* cross-axis alignment (horizontal on column) */
+      padding: var(--pad);
+      border-radius: var(--radius);
+      background: white;
+      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    /* FLEX CHILD (items) */
+    .item{
+      /* children respond to the parent's flex rules */
+      flex: 1 1 100%;                /* grow, shrink, basis — mobile: full width */
+      min-height: 80px;
+      display: flex;                 /* give each item its own internal flex layout */
+      align-items: center;           /* center content vertically inside item */
+      justify-content: center;       /* center content horizontally inside item */
+      padding: 1rem;
+      border-radius: 8px;
+      background: var(--item-bg);
+      color: var(--item-color);
+      font-weight: 600;
+      font-size: 0.95rem;
+      box-shadow: 0 4px 8px rgba(14, 30, 60, 0.06);
+    }
+
+    /* small visual distinction for demo */
+    .item:nth-child(2){ background: #ff7a59; }
+    .item:nth-child(3){ background: #6a9f58; }
+    .item:nth-child(4){ background: #9b59b6; }
+
+    /* Desktop: change parent's flex-direction to row and make items sit in one row */
+    @media (min-width: 768px) {
+      .flex-container{
+        flex-direction: row;         /* parent now lays children horizontally */
+        justify-content: space-between; /* distribute items along main axis (row) */
+        align-items: center;         /* align items along cross axis (vertical center) */
+        flex-wrap: nowrap;           /* keep items in one line (won't wrap) */
+      }
+
+      /* Make each item occupy roughly 25% of the container width minus gaps */
+      .item{
+        /* flex-basis uses calc to account for gap; with gap the math is approximate */
+        flex: 0 1 calc(25% - (var(--gap) * 0.75));
+        min-width: 0;               /* allows items to shrink correctly */
+      }
+    }
+
+    /* Small utility to show parent / child labels for learning */
+    .meta{
+      font-size: 0.78rem;
+      color: #364152;
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>Flexbox demo — parent & child relationship</h1>
+  <p class="lead">Mobile-first: stacked vertically on small screens, becomes 4 in a row on desktop. Try resizing your browser.</p>
+
+  <div class="meta">Parent: <code>.flex-container</code> — controls layout for all children using flex properties.</div>
+
+  <div class="flex-container" role="group" aria-label="Demo flex container">
+    <div class="item">Item 1</div>
+    <div class="item">Item 2</div>
+    <div class="item">Item 3</div>
+    <div class="item">Item 4</div>
+  </div>
+
+  <p style="margin-top:1rem; font-size:0.9rem; color:#3b4757;">
+    Parent properties used:
+    <ul style="margin:0.5rem 0 0 1rem;">
+      <li><code>display: flex</code> — creates the flex formatting context.</li>
+      <li><code>flex-direction</code> — changes main axis (column on mobile, row on desktop).</li>
+      <li><code>justify-content</code> — aligns children along the main axis.</li>
+      <li><code>align-items</code> — aligns children along the cross axis.</li>
+      <li><code>gap</code> — consistent spacing between children (no margin hacks).</li>
+    </ul>
+  </p>
+</body>
+</html>

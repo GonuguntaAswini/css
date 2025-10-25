@@ -1,0 +1,40 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.navbar{
+    display: fiex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    color: black;
+    top: 0;
+    width: 100%;
+    position: fixed;
+    padding: 15px;
+    margin: auto;
+}
+.Architec-container{ 
+    /* position: relative; */
+    margin-top: 50px;
+}
+.Architec-container img{
+    width: 100%;
+    /* height: 100%; */
+}
+.about-container {
+  padding: 60px 20px;
+  /* text-align: center; */
+  background:white;
+}
+.about-container h4{
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+.about-container p {
+  max-width: 800px;
+  margin: auto;
+  font-size: 1rem;
+  /* color: grey; */
+}

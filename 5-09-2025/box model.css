@@ -1,0 +1,44 @@
+.container{
+    background-color: darkseagreen;
+    padding: 10px 20px;
+    border: 5px;
+    margin: 10px;
+    border-color:black;
+    border-style: groove;
+    border-width: 5px;
+}
+.container img{
+    display: block;
+    height: auto;
+    border-width: 6px;
+    border-color:cyan;
+    border-style: groove;
+    text-align: justify;
+    width: 190px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.container h1{
+    color:brown;
+    padding: 0;
+    border-width: 5px;
+    border-color:lightcoral;
+    border-style: groove;
+    text-align: justify;
+    width: 195px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.container p{
+    box-sizing: border-box;
+    padding: 0;
+    border-color:blueviolet;
+    color: darkblue;
+    border-width: 5px;
+    border-style: groove;
+    text-align: justify;
+    width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+
+}
